@@ -93,10 +93,15 @@ function boxClicked(row, col) {
   console.log('box clicked = ', row, col)
 
   let clickedBox = gameTable.children[0].children[row - 1].children[col - 1]
-  clickedBox.textContent = game.turn
-  isRowCaptured(row)
-  isColCaptured(col)
-  isDiagCaptured(row, col)
-
-  nextTurn()
+  if(clickedBox.textContent==='X' || clickedBox.textContent==='O' ){
+      alert('Invalid Move')
+  }else {
+    clickedBox.textContent = game.turn
+    isRowCaptured(row)
+    isColCaptured(col)
+    isDiagCaptured(row, col)
+  
+    nextTurn()
+  }
+ 
 }
